@@ -15,11 +15,11 @@ import {
   MenuItem,
 } from "@mui/material";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom"; // นำเข้า useNavigate
+import { useParams, useNavigate } from "react-router-dom"; 
 
 const HistoryPage = () => {
   const { classroomId = 12 } = useParams();
-  const navigate = useNavigate(); // สร้าง navigate
+  const navigate = useNavigate(); 
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -202,7 +202,7 @@ const HistoryPage = () => {
         <Button
           variant="contained"
           color="primary"
-          onClick={() => navigate(-1)} // นำทางกลับไปหน้าก่อนหน้า
+          onClick={() => navigate(-1)} 
         >
           กลับ
         </Button>
