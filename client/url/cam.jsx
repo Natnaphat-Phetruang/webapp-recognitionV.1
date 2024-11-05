@@ -21,7 +21,7 @@ const Cam = () => {
   const studentListener = useRef(null); // เพิ่ม ref สำหรับเก็บ firebase listener
 
   const setupRealtimeListener = (studentId) => {
-    // ยกเลิก listener เก่า (ถ้ามี)
+    
     if (studentListener.current) {
       studentListener.current();
     }
@@ -75,7 +75,7 @@ const Cam = () => {
   };
 
   const insertAttendanceHistory = async (attendanceData, studentId) => {
-    // ตรวจสอบว่ามีข้อมูลที่จำเป็นครบถ้วน
+  
     if (!studentId || !attendanceData) {
       console.error("Missing required data for attendance history");
       return;
@@ -171,12 +171,12 @@ const Cam = () => {
 
     connectWebSocket();
 
-    // Cleanup function
+   
     return () => {
       if (wsRef.current) {
         wsRef.current.close();
       }
-      // ยกเลิก firebase listener เมื่อ component unmount
+   
       if (studentListener.current) {
         studentListener.current();
       }
