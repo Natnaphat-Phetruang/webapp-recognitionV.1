@@ -8,17 +8,17 @@ import {
   Paper,
 } from "@mui/material";
 import { useParams } from "react-router-dom";
-import { database } from "./firebaseClient"; // อย่าลืม import database จาก firebase config
-import { ref, get } from "firebase/database"; // นำเข้า ref และ get จาก firebase/database
+import { database } from "./firebaseClient"; 
+import { ref, get } from "firebase/database"; 
 import {
   getStorage,
   ref as storageRef,
   getDownloadURL,
-} from "firebase/storage"; // นำเข้า storage และ getDownloadURL
+} from "firebase/storage"; 
 
 const TestDataFetch = () => {
-  const [classroomId, setClassroomId] = useState(""); // State สำหรับเก็บ classroomId
-  const [studentId, setStudentId] = useState(""); // State สำหรับเก็บ studentId
+  const [classroomId, setClassroomId] = useState(""); 
+  const [studentId, setStudentId] = useState(""); 
   const [student, setStudent] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -45,9 +45,9 @@ const TestDataFetch = () => {
 
         // ดึง URL ของภาพจาก Firebase Storage
         const storage = getStorage();
-        const imageRef = storageRef(storage, `${studentId}.jpg`); // เปลี่ยนชื่อไฟล์ตามที่เก็บไว้
+        const imageRef = storageRef(storage, `${studentId}.jpg`); 
         const imageUrl = await getDownloadURL(imageRef);
-        setStudent((prev) => ({ ...prev, studentImage: imageUrl })); // อัปเดตข้อมูลนักเรียนให้มี URL ของภาพ
+        setStudent((prev) => ({ ...prev, studentImage: imageUrl })); 
       } else {
         setError("ไม่พบข้อมูลนักเรียนนี้.");
       }
@@ -81,7 +81,7 @@ const TestDataFetch = () => {
         variant="outlined"
         value={classroomId}
         onChange={(e) => setClassroomId(e.target.value)}
-        sx={{ marginBottom: 2, width: "100%" }} // ใช้ width 100% เพื่อให้เต็มช่อง
+        sx={{ marginBottom: 2, width: "100%" }}
       />
 
       {/* ช่องกรอก Student ID */}
@@ -90,7 +90,7 @@ const TestDataFetch = () => {
         variant="outlined"
         value={studentId}
         onChange={(e) => setStudentId(e.target.value)}
-        sx={{ marginBottom: 2, width: "100%" }} // ใช้ width 100% เพื่อให้เต็มช่อง
+        sx={{ marginBottom: 2, width: "100%" }}
       />
 
       <Button variant="contained" color="primary" onClick={fetchStudentData}>
