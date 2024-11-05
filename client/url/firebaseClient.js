@@ -1,12 +1,12 @@
 // frontend/src/firebaseClient.js
 
 import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database"; // ใช้สำหรับ Realtime Database
-import { getStorage } from "firebase/storage"; // ใช้สำหรับ Storage
+import { getDatabase } from "firebase/database";
+import { getStorage } from "firebase/storage"; 
 
 // ข้อมูลการตั้งค่าของ Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyDckWUty9on7gccDfC4_75FLvayVHBCIMQ",
+  apiKey: "",
   authDomain: "face-recognition-3e9a6.firebaseapp.com",
   databaseURL:
     "https://face-recognition-3e9a6-default-rtdb.asia-southeast1.firebasedatabase.app",
@@ -21,6 +21,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // รับอ้างอิงไปยังบริการฐานข้อมูล
-const database = getDatabase(app); // ใช้สำหรับเชื่อมต่อกับ Realtime Database
+const database = getDatabase(app); 
 const storage = getStorage(app);
 export { database, storage };
